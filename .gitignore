@@ -1,0 +1,20 @@
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+.cache/
+__pycache__/
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+
+# Agent specific (if any local state leaks)
+.gemini/
+brain/

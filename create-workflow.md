@@ -27,10 +27,13 @@ Example: "deploy-production Deploy the app to the production server safely"
     -   Extract `name` (first word).
     -   Extract `goal` (rest of string).
     -   If empty, ASK user: "What is the name and goal of the new workflow?"
-2.  **Validate**:
+2.  **Determine Category**:
+    -   Scan `.agent/workflows/commands/` for existing subdirectories.
+    -   ASK user: "Which category should this go into? (e.g., 'content', 'experiments', or a new one)"
+3.  **Validate**:
     -   Ensure name is kebab-case.
-    -   Check if file `.agent/workflows/commands/{name}.md` already exists.
-    -   If it exists, ASK user: "Overwrite existing workflow {name}? (y/n)"
+    -   Check if file `.agent/workflows/commands/{category}/{name}.md` already exists.
+    -   If it exists, ASK user: "Overwrite existing workflow {category}/{name}? (y/n)"
 </step_1_intake>
 
 <step_2_design>
@@ -51,7 +54,7 @@ Example: "deploy-production Deploy the app to the production server safely"
 
 <step_3_create>
 <title>Generate Workflow File</title>
-1.  **Construct File Path**: `.agent/workflows/commands/{name}.md`
+1.  **Construct File Path**: `.agent/workflows/commands/{category}/{name}.md`
 2.  **Write Content**:
     -   Use `write_to_file`.
     -   Ensure NO conversational filler in the file content.
@@ -65,7 +68,7 @@ Example: "deploy-production Deploy the app to the production server safely"
 1.  **Check**: Does the file exist?
 2.  **Summary**: Create `SUMMARY.md` listing:
     -   New workflow path.
-    -   Command to run it (`/run-prompt .agent/workflows/commands/{name}.md` or `/{name}`).
+    -   Command to run it (`/run-prompt .agent/workflows/commands/{category}/{name}.md` or `/{name}`).
     -   Key features included.
 </step_4_verify>
 </process>

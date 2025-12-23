@@ -83,3 +83,18 @@ Use clear `IF/ELSE` logic for decision points.
 -   **The "Deep Dive"**: 1. List files, 2. Read key files, 3. Synthesize. (See `auto-update.md`)
 -   **The "Router"**: Identify intent -> Delegate to sub-workflow/prompt. (See `experiment.md`)
 -   **The "Factory"**: Gather requirements -> Generate file from template. (See `create-meta-prompt.md`)
+
+## Workflow Architecture & Directory Structure
+**Reference**: https://antigravity.google/docs/rules-workflows#workflows
+
+### modularity
+Create smaller "function-like" sub-workflows that are assembled to accomplish complex tasks.
+-   **Main Workflow**: The entry point (e.g., `create-workflow.md`).
+-   **Sub-directory**: Same name as the workflow (e.g., `create-workflow/`).
+-   **Sub-workflows**: Specialized logical units within the sub-directory (e.g., `create-workflow/new.md`).
+-   **Context**: A knowledge/reference document in the sub-directory (e.g., `create-workflow/standards.md`) for the agent to reference.
+
+### Design Principles
+1.  **Infer Intent**: The main workflow should be smart enough to route to the correct sub-workflow (e.g., Create vs Update).
+2.  **Explicit Context**: Always reference the relevant standards/context file in the sub-workflows.
+3.  **Verification**: Include explicit verification steps, especially for updates.

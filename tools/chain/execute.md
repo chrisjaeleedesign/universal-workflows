@@ -21,9 +21,12 @@ Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 1.  **Resolve Context (Pre-Flight)**:
     -   **Scan**: Check `args` for placeholders (`$LAST_ID`, `$LAST_FILE`).
     -   **Resolve `$LAST_ID`**:
-        -   Read `research/experiments/tracker.json`.
-        -   Find the experiment with the *latest* `start_date` or status change.
-        -   Replace `$LAST_ID` with that extracted UUID.
+        -   **Locate Tracker**: Check if `research/experiments/tracker.json` exists (or `$TRACKER_PATH` arg).
+        -   **If Found**: 
+            -   Read the tracker file.
+            -   Find the experiment with the *latest* `start_date`.
+            -   Replace `$LAST_ID` with that extracted UUID.
+        -   **If Not Found**: Skip resolution (or treat `$LAST_ID` as literal).
     -   **Resolve `$LAST_FILE`**:
         -   Run `ls -t content/ | head -1` (or relevant dir).
         -   Replace `$LAST_FILE` with that filename.

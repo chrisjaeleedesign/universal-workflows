@@ -11,7 +11,7 @@ Engage in a deep, context-aware discussion with the user. Do NOT modify any code
 </objective>
 
 <context>
-Gather Sub-Workflow: @.agent/workflows/commands/universal-workflows/discussion/gather.md
+Gather Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/discussion/gather.md
 </context>
 
 <input>
@@ -22,7 +22,9 @@ $ARGUMENTS: Topic to discuss.
 <step_1_research>
 <title>Gather Context</title>
 1.  **Delegate**: Call `gather.md` with the topic.
-2.  **Load**: Read the resulting `discussion_context.md`.
+2.  **Load**: 
+    -   Identify the file created by `gather.md`.
+    -   Use `view_file` to read it.
 </step_1_research>
 
 <step_2_consult>

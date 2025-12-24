@@ -29,13 +29,15 @@ $ARGUMENTS: Topic or question to research.
 
 <step_3_synthesize>
 <title>Create Brief</title>
-1.  **Draft**: Create `discussion_context.md`.
+1.  **Draft**: Create a research brief.
 2.  **Structure**:
     -   **Problem**: What is being discussed?
     -   **Key Files**: List of files found + brief summary.
     -   **Concepts**: Definitions and relationships.
     -   **Missing**: What wasn't found?
-3.  **Persist**: Save this file to the workspace root (temporarily) or a `.cache` folder.
+3.  **Persist**: 
+    -   Generate filename: `.agent/workflows/commands/universal-workflows/discussion/.discussions/discussion_[DATE]_[TOPIC_SLUG].md`
+    -   Save the brief there.
 </step_3_synthesize>
 
 <step_4_output>

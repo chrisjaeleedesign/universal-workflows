@@ -50,9 +50,9 @@ If any check fails, **rewrite the prompt to fix it**.
 </self_correction>
 
 <file_creation>
-1. Identify/Create Session Folder: `.prompts/{YYYY-MM-DD}-{topic}/`
-2. Determine File Sequence: Check existing `*-{purpose}.md` files, increment counter (e.g., `01`, `02`).
-3. Write prompt to: `.prompts/{YYYY-MM-DD}-{topic}/{sequence}-{purpose}.md`
+1. Identify/Create Session Folder: `.agent/workflows/commands/universal-workflows/create-meta-prompt/.prompts/{YYYY-MM-DD}-{topic}/`
+2. Determine File Sequence: Check existing `*-{purpose}.md` files, increment counter.
+3. Write prompt to: `.agent/workflows/commands/universal-workflows/create-meta-prompt/.prompts/{YYYY-MM-DD}-{topic}/{sequence}-{purpose}.md`
 </file_creation>
 </step_1_generate>
 

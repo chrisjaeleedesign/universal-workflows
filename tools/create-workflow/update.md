@@ -7,7 +7,7 @@ $ARGUMENTS should contain the workflow name or path to update, and a description
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/create-workflow/standards.md
+Standards: @.agent/workflows/commands/universal-workflows/tools/create-workflow/standards.md
 Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 </context>
 

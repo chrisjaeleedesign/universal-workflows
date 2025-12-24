@@ -7,8 +7,8 @@ $ARGUMENTS should contain the desired workflow name (kebab-case) and a brief des
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/create-workflow/standards.md
-Existing Workflows: !`ls .agent/workflows/commands/universal-workflows/*.md | head -5`
+Standards: @.agent/workflows/commands/universal-workflows/tools/create-workflow/standards.md
+Existing Workflows: !`ls .agent/workflows/commands/universal-workflows/tools/*.md | head -5`
 Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 </context>
 

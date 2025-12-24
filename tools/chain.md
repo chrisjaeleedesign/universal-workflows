@@ -11,8 +11,8 @@ Serve as the entry point for chaining multiple workflows together. Route to inta
 </objective>
 
 <context>
-Intake Sub-Workflow: @.agent/workflows/commands/universal-workflows/chain/intake.md
-Execute Sub-Workflow: @.agent/workflows/commands/universal-workflows/chain/execute.md
+Intake Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/chain/intake.md
+Execute Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/chain/execute.md
 </context>
 
 <input>
@@ -23,6 +23,7 @@ $ARGUMENTS: Natural language chain description (e.g. "Idea Foo then Plan it").
 <step_1_start>
 <title>Initiate Chain</title>
 1.  **Delegate**:
-    -   Call `.agent/workflows/commands/universal-workflows/chain/intake.md` with the user inputs.
+    -   Call `.agent/workflows/commands/universal-workflows/intake.md` (The Master Router).
+    -   Pass the user input. It will handle parsing and routing back to `chain/execute.md` if needed.
 </step_1_start>
 </process>

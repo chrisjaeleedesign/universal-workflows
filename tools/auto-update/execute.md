@@ -10,7 +10,7 @@ $ARGUMENTS: The target directory (TARGET).
 
 <context>
 Project Rules: @.agent/rules/
-Standards: @.agent/workflows/commands/universal-workflows/create-workflow/standards.md
+Standards: @.agent/workflows/commands/universal-workflows/tools/create-workflow/standards.md
 </context>
 
 <process>

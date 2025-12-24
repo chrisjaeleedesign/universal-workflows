@@ -38,6 +38,6 @@ Available Workflows: !`find .agent/workflows/commands -name "*.md"`
 
 <step_3_handoff>
 <title>Pass to Executor</title>
-1.  **Delegate**: Call `.agent/workflows/commands/universal-workflows/chain/execute.md` with the parsed list of steps.
+1.  **Delegate**: Call `.agent/workflows/commands/universal-workflows/tools/chain/execute.md` with the parsed list of steps.
 </step_3_handoff>
 </process>

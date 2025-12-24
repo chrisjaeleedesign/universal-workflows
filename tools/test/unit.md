@@ -9,7 +9,7 @@ $ARGUMENTS: File path or description of logic to test.
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/test/standards.md
+Standards: @.agent/workflows/commands/universal-workflows/tools/test/standards.md
 </context>
 
 <process>

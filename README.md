@@ -1,102 +1,85 @@
-# Universal Antigravity Workflows
+# Universal Antigravity Workflows (Workflow OS v2.0)
 
-This repository contains a collection of reusable workflows and prompt templates designed for Antigravity agents. These workflows are intended to be dropped into any project to provide instant, powerful agentic capabilities.
+This repository contains the **Workflow Operating System**, a layered architecture for high-performance agentic workflows. It is designed to replace "scripts" with robust "protocols."
 
-## The Hub & Tools Architecture
+## Architecture: Hub & Tools
 
-We have moved to a **Hub & Tools** model for better organization.
-
-### 1. The Hub (Entry Point)
--   **[`/intake`](intake.md)**: The Master Router. Always start here. It parses natural language and routes to the correct tool.
-
-### 2. The Tools (Capabilities)
-Located in [`tools/`](tools/), these are the functional agents:
-
-- **[Auto-Update](tools/auto-update.md)**: Automates deep-dive analysis and documentation updates for directories.
-    - Uses `tools/auto-update/` sub-workflows.
-- **[Create Meta-Prompt](tools/create-meta-prompt.md)**: A meta-workflow for generating high-quality structured prompts for other agents.
-    - Uses `tools/create-meta-prompt/` sub-workflows.
-- **[Create Workflow](tools/create-workflow.md)**: A helper workflow to standardize the creation of new workflow files.
-    - Uses `tools/create-workflow/` sub-workflows.
-- **[Get Feedback](tools/get-feedback.md)**: Request AI feedback (Vision/Text) on any file.
-- **[Run Prompt](tools/run-prompt.md)**: A utility to execute prompts with proper context and handling.
-    - Support for `single` and `chain` execution modes.
-- **[Smart Commit](tools/smart-commit.md)**: Intelligently analyze changes, auto-update docs, and generate semantic commits.
-- **[Test](tools/test.md)**: Intelligent testing agent (Logic, Quality, Workflow) with auto-scaffolding.
-    - Uses `tools/test/` sub-workflows.
-
-### 3. The Kernel (OS Core)
-Located in [`kernel/`](kernel/), these workflows power the system:
--   **[`/plan`](kernel/plan.md)**: The Architect. Generates visual flowcharts (Mermaid).
--   **[`/critic`](kernel/critic.md)**: The Quality Gate. A "Brutally Honest Coach".
--   **[`/loop`](kernel/loop.md)**: The Reliability Engine. Retries tasks until success.
-
-## Usage
-
-To use these workflows in a new project, simply clone this repository into your `.agent/workflows` directory:
-
-```bash
-mkdir -p .agent/workflows
-git clone https://github.com/chrisjaeleedesign/universal-workflows.git .agent/workflows/universal-workflows
-```
-
-Then run the intake:
-```bash
-# Example from an agent
-/intake "Draft a blog post"
-```
-
-## Structure
-
-```
-.
-├── intake.md          # The Hub
-├── kernel/            # The OS
-│   ├── plan.md
-│   ├── critic.md
-│   └── loop.md
-└── tools/             # The Capabilities
-    ├── auto-update.md
-    ├── create-meta-prompt.md
-    ├── test.md
-    └── ...
-```
-
----
-
-## Interaction Diagram
+The system follows a strict **Hub-and-Spoke** model to ensure every action is routed through a safety kernel.
 
 ```mermaid
 graph TD
-  User[User Request] --> Intake["/intake (Hub)"]
+  Start[User Request] --> Hub["/intake (The Hub)"]
   
-  subgraph Kernel [Layer 1: The Kernel]
-    direction TB
-    Plan["/plan (Visuals)"]
-    Critic["/critic (Quality Gate)"]
-    Loop["/loop (Reliability)"]
+  subgraph Kernel [Layer 1: The Kernel (OS)]
+    Plan["/plan (The Architect)"]
+    Critic["/critic (The Inspector)"]
+    Loop["/loop (The Manager)"]
+    Report["/walkthrough (The Reporter)"]
   end
   
-  subgraph Tools [Layer 2: The Tools]
-    Write["/write-copy"]
-    Test["/test"]
-    Workflow["/create-workflow"]
+  subgraph Tools [Layer 2: The Tools (Capabilities)]
+    Test["/test (QA)"]
+    Write["/write-copy (Content)"]
+    Git["/smart-commit (Ops)"]
+    Flow["/create-workflow (Meta)"]
   end
   
-  %% Routing
-  Intake --> Plan
-  Intake --> Write
-  Intake --> Test
-  Intake --> Workflow
-  
-  %% Service Calls (Delegation)
-  Write --> Loop
-  Test --> Loop
-  Workflow --> Plan
-  Workflow --> Critic
-  
-  %% Inner Loop
+  Hub --> Plan
+  Plan --> Loop
+  Loop --> Tools
   Loop --> Critic
-  Critic -->|Refine| Tools
-  Critic -->|Pass| Output[Final Output]
+  Tools --> Report
 ```
+
+### 1. The Hub (Entry Point)
+-   **[`intake.md`](intake.md)**: The Master Router. Always start here. It parses natural language (e.g., "Draft a blog") into a structured execution chain.
+
+### 2. The Kernel (Universal Infrastructure)
+These workflows provide the "Consciousness" to the agents.
+-   **[`kernel/plan.md`](kernel/plan.md)**: **The Architect**. Generates a visual Mermaid flowchart of the proposed work. *Constraint*: Explicit User Approval required to proceed.
+-   **[`kernel/critic.md`](kernel/critic.md)**: **The Inspector**. A "Brutally Honest Coach" that audits work against strict personas (e.g., "Security Expert", "Brand Manager").
+-   **[`kernel/loop.md`](kernel/loop.md)**: **The Manager**. The Reliability Engine. It wraps execution in a retry loop:
+    1.  **Execute**: Run the tool.
+    2.  **Verify**: Run `tools/test.md` (Auto-Correction).
+    3.  **Validate**: Ask User/Critic for approval.
+-   **[`kernel/walkthrough.md`](kernel/walkthrough.md)**: **The Reporter**. Automatically generates a `walkthrough` artifact at the end of every session as "Proof of Work."
+
+### 3. The Tools (Capabilities)
+Located in `tools/`, these are the "Specialist Workers."
+-   **[`tools/test.md`](tools/test.md)**: Intelligent testing (Unit, Visual, Workflow).
+-   **[`tools/create-workflow.md`](tools/create-workflow.md)**: Factory for new agents.
+-   **[`tools/smart-commit.md`](tools/smart-commit.md)**: Semantic git operations.
+-   **[`tools/auto-update.md`](tools/auto-update.md)**: Self-maintenance.
+-   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
+
+---
+
+## Protocols: The Golden Path
+
+When you use the Hub (`/intake`), the system enforces the **Golden Path** protocol. This prevents "Cowboy Coding" and ensures every task meets high standards.
+
+### The Protocol Sequence
+1.  **Phase 1: Safety (Planning)**
+    -   Agent calls `/plan`.
+    -   **Output**: `implementation_plan.md` with Visual Flowchart.
+    -   **Gate**: User must click "Approve."
+2.  **Phase 2: Reliability (Execution)**
+    -   Agent calls `/loop`.
+    -   **Loop Logic**:
+        -   `Run Tool` -> `Run Tests` -> `Audit Result`.
+        -   If any step fails, the agent **Self-Corrects** and retries.
+3.  **Phase 3: Visibility (Reporting)**
+    -   Agent calls `/walkthrough`.
+    -   **Output**: A `walkthrough` artifact summarizing valid changes.
+
+### Usage
+To use the OS, simply invoke the Hub:
+
+```bash
+/intake "Fix the login bug on the beta branch"
+```
+
+The system will:
+1.  **Plan** the fix (Show you the flowchart).
+2.  **Loop** the fix (Run tests, fix bugs, audit code).
+3.  **Report** the fix (Give you a walkthrough).

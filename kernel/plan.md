@@ -15,6 +15,7 @@ $ARGUMENTS: The proposed execution chain or task description.
 1.  **Design**: Create a Mermaid diagram representing the flow.
     -   Nodes = Workflow Steps.
     -   Edges = Data flow / Dependencies.
+    -   **Constraint**: ALWAYS quote node labels (e.g., `id["Label"]`) to avoid syntax errors with special chars.
 2.  **Draft**: Write (or update) `implementation_plan.md`.
     -   Include the Mermaid diagram.
     -   Include a text summary of the logic.

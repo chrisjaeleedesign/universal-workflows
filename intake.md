@@ -40,7 +40,8 @@ Kernel: !`find .agent/workflows/commands/universal-workflows/kernel -name "*.md"
 1.  **Construct Protocol**:
     -   **Phase 1 (Safety)**: Generate command using `.agent/workflows/commands/universal-workflows/kernel/plan.md`.
     -   **Phase 2 (Reliability)**: Generate command using `.agent/workflows/commands/universal-workflows/kernel/loop.md`.
-    -   *Example*: `[kernel/plan, kernel/loop "cmd"]`.
+    -   **Phase 3 (Visibility)**: Generate command using `.agent/workflows/commands/universal-workflows/kernel/walkthrough.md`.
+    -   *Example*: `[kernel/plan, kernel/loop "cmd", kernel/walkthrough]`.
 2.  **Route**:
     -   Delegate to `.agent/workflows/commands/universal-workflows/tools/chain/execute.md`.
     -   This ensures Plan -> Approval -> Looped Execution.

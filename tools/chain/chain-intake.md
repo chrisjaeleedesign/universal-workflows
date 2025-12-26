@@ -9,7 +9,7 @@ $ARGUMENTS: Natural language description of the chain (e.g. "Create idea 'Foo' t
 </input>
 
 <context>
-Available Workflows: !`find .agent/workflows/commands -name "*.md"`
+Available Workflows: !`find .agent/workflows -name "*.md"`
 </context>
 
 <process>
@@ -18,7 +18,7 @@ Available Workflows: !`find .agent/workflows/commands -name "*.md"`
 1.  **Analyze**: Read the list of available workflows from context.
 2.  **Map**: Create a mapping of verbs to scripts.
     -   "Idea", "Log" -> `experiments/idea.md`
-    -   "Plan", "Design" -> `experiments/plan.md`
+    -   "Plan", "Design" -> `experiments/experiment-plan.md`
     -   "Run", "Execute" -> `experiments/run.md`
     -   "Write", "Draft" -> `content/write-copy.md`
     -   "Refine", "Edit" -> `content/refine-content.md`
@@ -33,11 +33,11 @@ Available Workflows: !`find .agent/workflows/commands -name "*.md"`
     -   **Bridging**: If the segment refers to previous output ("it", "that", "the ID"), use specific placeholders:
         -   `$LAST_ID`: For experiment IDs.
         -   `$LAST_FILE`: For file paths.
-3.  **Output**: A list of steps (e.g., `Step 1: /idea "Foo"; Step 2: /plan "$LAST_ID"`).
+3.  **Output**: A list of steps (e.g., `Step 1: /idea "Foo"; Step 2: /experiment-plan "$LAST_ID"`).
 </step_2_parse>
 
 <step_3_handoff>
 <title>Pass to Executor</title>
-1.  **Delegate**: Call `.agent/workflows/commands/universal-workflows/tools/chain/execute.md` with the parsed list of steps.
+1.  **Delegate**: Call `.agent/workflows/universal-workflows/tools/chain/chain-execute.md` with the parsed list of steps.
 </step_3_handoff>
 </process>

@@ -21,7 +21,7 @@ $ARGUMENTS: The command to loop (e.g. "/write-copy '...').
 1.  **Check Context**:
     -   Did we just write code? (Yes/No)
 2.  **Execute Test**:
-    -   Call `.agent/workflows/commands/universal-workflows/tools/test.md`.
+    -   Call `.agent/workflows/universal-workflows/tools/test.md`.
     -   Arg: "Verify the changes from previous step."
 3.  **Gate**:
     -   **PASS**: Proceed to `step_3_validate`.

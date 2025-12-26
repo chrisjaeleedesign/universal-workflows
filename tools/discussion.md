@@ -1,5 +1,4 @@
 ---
-name: discussion
 description: Interactive consultant mode for deep technical discussion without code changes.
 allowed-tools: [notify_user, view_file, task_boundary]
 ---
@@ -11,7 +10,7 @@ Engage in a deep, context-aware discussion with the user. Do NOT modify any code
 </objective>
 
 <context>
-Gather Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/discussion/gather.md
+Gather Sub-Workflow: @.agent/workflows/universal-workflows/tools/discussion/gather.md
 </context>
 
 <input>

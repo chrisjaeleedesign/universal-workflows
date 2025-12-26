@@ -11,7 +11,7 @@ graph TD
   Start[User Request] --> Hub["/intake (The Hub)"]
   
   subgraph Kernel [Layer 1: The Kernel (OS)]
-    Plan["/plan (The Architect)"]
+    Plan["/visual-planner (The Architect)"]
     Critic["/critic (The Inspector)"]
     Loop["/loop (The Manager)"]
     Report["/walkthrough (The Reporter)"]
@@ -36,7 +36,7 @@ graph TD
 
 ### 2. The Kernel (Universal Infrastructure)
 These workflows provide the "Consciousness" to the agents.
--   **[`kernel/plan.md`](kernel/plan.md)**: **The Architect**. Generates a visual Mermaid flowchart of the proposed work. *Constraint*: Explicit User Approval required to proceed.
+-   **[`kernel/visual-planner.md`](kernel/visual-planner.md)**: **The Architect**. Generates a visual Mermaid flowchart of the proposed work. *Constraint*: Explicit User Approval required to proceed.
 -   **[`kernel/critic.md`](kernel/critic.md)**: **The Inspector**. A "Brutally Honest Coach" that audits work against strict personas (e.g., "Security Expert", "Brand Manager").
 -   **[`kernel/loop.md`](kernel/loop.md)**: **The Manager**. The Reliability Engine. It wraps execution in a retry loop:
     1.  **Execute**: Run the tool.
@@ -52,6 +52,20 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/auto-update.md`](tools/auto-update.md)**: Self-maintenance.
 -   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
 
+## Registry System (How `/setup` Works)
+
+The **Workflow Registry** (`workflow_registry.md`) is the engine that makes commands discoverable. It is built using a **Hybrid Model**:
+
+### 1. The Kernel (Manifest-Based)
+Core system workflows are explicitly defined in the **Source of Truth**: [`universal_manifest.md`](universal_manifest.md).
+-   **Discovery**: The `/setup` workflow reads this manifest directly.
+-   **Critical Rule**: These files **MUST** have a `name` field but **MUST NOT** have an `argument-hint` field in their frontmatter.
+
+### 2. The Project Tools (Discovery-Based)
+Local project workflows are discovered by scanning the `local-workflows/` directory.
+-   **Discovery**: The `/setup` workflow recursively scans for `*.md` files.
+-   **Critical Rule**: These files **MUST** include a `name` field in their frontmatter to be registered.
+
 ---
 
 ## Protocols: The Golden Path
@@ -60,7 +74,7 @@ When you use the Hub (`/intake`), the system enforces the **Golden Path** protoc
 
 ### The Protocol Sequence
 1.  **Phase 1: Safety (Planning)**
-    -   Agent calls `/plan`.
+    -   Agent calls `/visual-planner`.
     -   **Output**: `implementation_plan.md` with Visual Flowchart.
     -   **Gate**: User must click "Approve."
 2.  **Phase 2: Reliability (Execution)**
@@ -80,6 +94,6 @@ To use the OS, simply invoke the Hub:
 ```
 
 The system will:
-1.  **Plan** the fix (Show you the flowchart).
+1.  **Visual Plan** the fix (Show you the flowchart).
 2.  **Loop** the fix (Run tests, fix bugs, audit code).
 3.  **Report** the fix (Give you a walkthrough).

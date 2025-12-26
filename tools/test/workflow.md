@@ -9,8 +9,8 @@ $ARGUMENTS: The command string to test (e.g. "/create-content").
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/tools/test/standards.md
-Project Workflows: @.agent/workflows/commands/README.md
+Standards: @.agent/workflows/universal-workflows/tools/test/test-standards.md
+Project Workflows: @.agent/workflows/local-workflows/README.md
 </context>
 
 <process>

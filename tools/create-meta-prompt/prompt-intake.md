@@ -59,7 +59,7 @@ IF `$ARGUMENTS` are empty:
 <step_2_handoff>
 <title>Route to Generator</title>
 1. **Call Generator**:
-   - Use `view_file` to read `.agent/workflows/commands/universal-workflows/tools/create-meta-prompt/generate.md`.
+   - Use `view_file` to read `.agent/workflows/universal-workflows/tools/create-meta-prompt/prompt-generate.md`.
    - Pass the inferred `purpose` and `topic` and `context_files` as arguments or context.
 </step_2_handoff>
 </process>

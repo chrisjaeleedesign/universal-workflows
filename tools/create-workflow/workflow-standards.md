@@ -18,12 +18,18 @@ Defines metadata and capability boundaries.
     -   *Good*: `argument-hint: "[name]"`
 -   **Tools**: Verify that every tool used in the `<process>` (e.g., `notify_user` for asking questions) is listed in `allowed-tools`.
 
+```
+-   **Critical Rules**:
+    -   **Universal Workflows** (`universal-workflows/`): Defined in `universal_manifest.md`. DO NOT include `argument-hint` in the file. `name` is REQUIRED.
+    -   **Local Workflows** (`local-workflows/`): Discovered via scan. MUST include `name` in the file.
+
 ```yaml
 ---
+# FOR LOCAL WORKFLOWS ONLY:
 name: workflow-name-kebab-case
-description: Action-oriented summary of what this does.
-argument-hint: "[optional input format hint]"
-allowed-tools: [tool1, tool2] # Restrict tools to reduce noise
+# FOR ALL WORKFLOWS:
+description: Action-oriented summary.
+allowed-tools: [tool1, tool2]
 ---
 ```
 

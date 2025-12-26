@@ -50,15 +50,16 @@ If any check fails, **rewrite the prompt to fix it**.
 </self_correction>
 
 <file_creation>
-1. Identify/Create Session Folder: `.agent/workflows/commands/universal-workflows/create-meta-prompt/.prompts/{YYYY-MM-DD}-{topic}/`
-2. Determine File Sequence: Check existing `*-{purpose}.md` files, increment counter.
-3. Write prompt to: `.agent/workflows/commands/universal-workflows/create-meta-prompt/.prompts/{YYYY-MM-DD}-{topic}/{sequence}-{purpose}.md`
+1. Identify/Create Session Folder: 
+   - Ensure directories exist: `mkdir -p ./.prompts/archive`
+2. Determine File Sequence: Check existing `*-{purpose}.md` files, increment counter if needed (or just use unique timestamp).
+3. Write prompt to: `./.prompts/{YYYY-MM-DD}-{topic}-{purpose}.md`
 </file_creation>
 </step_1_generate>
 
 <step_2_present>
 <title>Present Result</title>
 Present the created prompt path and the run command:
-` /run-prompt .prompts/{YYYY-MM-DD}-{topic}/{sequence}-{purpose}.md `
+` /run-prompt .prompts/{YYYY-MM-DD}-{topic}-{purpose}.md `
 </step_2_present>
 </process>

@@ -1,5 +1,5 @@
 ---
-name: run-prompt
+
 description: Delegate one or more prompts to fresh sub-task contexts.
 allowed-tools: [read_url_content, task_boundary, run_command, list_dir, view_file]
 ---
@@ -7,8 +7,8 @@ allowed-tools: [read_url_content, task_boundary, run_command, list_dir, view_fil
 <role>Workflow Executor (Router)</role>
 
 <context>
-Single Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/run-prompt/single.md
-Chain Sub-Workflow: @.agent/workflows/commands/universal-workflows/tools/run-prompt/chain.md
+Single Sub-Workflow: @.agent/workflows/universal-workflows/tools/run-prompt/single.md
+Chain Sub-Workflow: @.agent/workflows/universal-workflows/tools/chain.md
 </context>
 
 <input>

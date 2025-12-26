@@ -1,7 +1,5 @@
 ---
-name: get-feedback
-description: Request AI feedback on a specific file (image, video, text) with an optional prompt.
-argument-hint: "[resource_path] [optional_prompt]"
+
 allowed-tools: [run_command, read_url_content, task_boundary, notify_user]
 ---
 

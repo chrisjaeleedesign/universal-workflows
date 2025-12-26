@@ -20,7 +20,7 @@ push: (Optional) Boolean. Set to 'true' to push after committing. Default: true.
 <context>
 Project Rules: @.agent/rules/
 Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
-Auto-Update Workflow: @.agent/workflows/commands/universal-workflows/tools/auto-update.md
+Auto-Update Workflow: @.agent/workflows/universal-workflows/tools/auto-update.md
 </context>
 
 <process>

@@ -7,8 +7,8 @@ $ARGUMENTS should contain the desired workflow name (kebab-case) and a brief des
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/tools/create-workflow/standards.md
-Existing Workflows: !`ls .agent/workflows/commands/universal-workflows/tools/*.md | head -5`
+Standards: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-standards.md
+Existing Workflows: !`ls .agent/workflows/universal-workflows/tools/*.md | head -5`
 Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 </context>
 
@@ -20,17 +20,17 @@ Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
     -   Extract `goal` (rest of string).
     -   If empty, ASK user: "What is the name and goal of the new workflow?"
 2.  **Determine Category**:
-    -   Scan `.agent/workflows/commands/` for existing subdirectories.
-    -   ASK user: "Which category should this go into? (e.g., 'universal-workflows', 'content', 'experiments', or a new one)"
+    -   Scan `.agent/workflows/local-workflows/` for existing subdirectories.
+    -   ASK user: "Which category should this go into? (e.g., 'experiments', 'content', 'data', or a new one)"
 3.  **Validate**:
     -   Ensure name is kebab-case.
-    -   Check if file `.agent/workflows/commands/{category}/{name}.md` already exists.
+    -   Check if file `.agent/workflows/local-workflows/{category}/{name}.md` already exists.
     -   If it exists, STOP and suggest using the `update` path or ASK to overwrite.
 </step_1_intake>
 
 <step_2_design>
 <title>Architect the Workflow</title>
-1.  **Read Standards**: Review `standards.md` for structure and best practices.
+1.  **Read Standards**: Review `workflow-standards.md` for structure and best practices.
 2.  **Select Pattern**:
     -   Research -> "Deep Dive"
     -   Action -> "Factory" or "Execution"
@@ -44,11 +44,21 @@ Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 
 <step_3_create>
 <title>Generate Workflow File</title>
-1.  **Construct File Path**: `.agent/workflows/commands/{category}/{name}.md`
+1.  **Construct File Path**: `.agent/workflows/local-workflows/{category}/{name}.md`
 2.  **Write Content**:
     -   Use `write_to_file`.
+    -   **Frontmatter Rule**:
+        -   Since this is a **Local Workflow**, you **MUST** include `name: {name}` in the frontmatter.
+        -   **Universal Workflows** defined in the Manifest also use this field.
+    -   **Format**:
+        ```yaml
+        ---
+        name: {name}
+        description: {description}
+        allowed-tools: [...]
+        ---
+        ```
     -   Ensure NO conversational filler.
-    -   Strictly follow the XML+Frontmatter format.
 </step_3_create>
 
 <step_4_verify>

@@ -36,7 +36,8 @@ $ARGUMENTS: Topic or question to research.
     -   **Concepts**: Definitions and relationships.
     -   **Missing**: What wasn't found?
 3.  **Persist**: 
-    -   Generate filename: `.agent/workflows/commands/universal-workflows/discussion/.discussions/discussion_[DATE]_[TOPIC_SLUG].md`
+    -   Generate filename: `./.discussion/{{YYYY}}-{{MM}}-{{DD}}-{{TOPIC_SLUG}}.md`
+    -   Ensure directory exists: `mkdir -p ./.discussion/archive`
     -   Save the brief there.
 </step_3_synthesize>
 

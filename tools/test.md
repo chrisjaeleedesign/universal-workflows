@@ -1,7 +1,7 @@
 ---
 name: test
 description: Intelligent testing agent that infers test targets (Unit, Visual, or Agent Workflow) and executes verification.
-argument-hint: "[description of what to test]"
+
 allowed-tools: [run_command, task_boundary, view_file, notify_user]
 ---
 
@@ -13,10 +13,10 @@ Infer intent, route to specialized tester, and optionally engage the Reliability
 
 <context>
 Values: "TDD", "Verification", "Safety"
-Unit Test: @.agent/workflows/commands/universal-workflows/tools/test/unit.md
-Visual Test: @.agent/workflows/commands/universal-workflows/tools/test/visual.md
-Workflow Test: @.agent/workflows/commands/universal-workflows/tools/test/workflow.md
-Loop Kernel: @.agent/workflows/commands/universal-workflows/kernel/loop.md
+Unit Test: @.agent/workflows/universal-workflows/tools/test/unit.md
+Visual Test: @.agent/workflows/universal-workflows/tools/test/visual.md
+Workflow Test: @.agent/workflows/universal-workflows/tools/test/workflow.md
+Loop Kernel: @.agent/workflows/universal-workflows/kernel/loop.md
 </context>
 
 <process>

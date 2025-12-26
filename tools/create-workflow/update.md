@@ -7,7 +7,7 @@ $ARGUMENTS should contain the workflow name or path to update, and a description
 </input>
 
 <context>
-Standards: @.agent/workflows/commands/universal-workflows/tools/create-workflow/standards.md
+Standards: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-standards.md
 Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
 </context>
 
@@ -18,7 +18,7 @@ Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
     -   Find the target workflow file based on input.
     -   If ambiguous, ASK user to clarify.
 2.  **Read Workflow**: Read the content of the existing workflow.
-3.  **Read Standards**: Review `standards.md` to ensure updates align with best practices.
+3.  **Read Standards**: Review `workflow-standards.md` to ensure updates align with best practices.
 </step_1_intake>
 
 <step_2_plan>

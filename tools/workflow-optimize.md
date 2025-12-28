@@ -15,6 +15,7 @@ Conduct a "Retrospective" on the recent agent session. Analyze the logs to ident
     *   *Transient* (e.g. API 500) -> Ignore.
     *   *Contextual* (e.g. User changed mind) -> Ignore.
     *   *Structural* (e.g. "Tool X failed because path Y is hardcoded") -> **FIX**.
+    *   *Memory Gap* (e.g. "Agent used npm, User prefers Bun") -> **DELEGATE** to `@[/memory-update]`.
 2.  **Gatekeeping**: You do NOT apply changes automatically. You GENERATE A PLAN.
 </context>
 

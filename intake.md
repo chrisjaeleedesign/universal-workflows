@@ -13,6 +13,7 @@ $ARGUMENTS: Natural language request (e.g., "Draft a blog regarding X then criti
 <context>
 Registry Status: !`[ -f .agent/workflows/workflow_registry.md ] && echo "active" || echo "missing"`
 Registry: @.agent/workflows/workflow_registry.md
+Memory Context: @.agent/memory/*.md
 </context>
 
 <process>
@@ -54,8 +55,10 @@ Registry: @.agent/workflows/workflow_registry.md
 <title>Optimization Handoff</title>
 1.  **Completion Check**:
     -   Assess if the session experienced significant friction (errors, loops).
+    -   Assess if the user provided corrections/preferences ("No, do X").
 2.  **Suggest Optimization**:
-    -   If friction detected: "⚠️ Friction detected. Run `@[/workflow-optimize]` to permanently fix these issues."
+    -   If friction detected: "⚠️ Friction detected. Run `@[/workflow-optimize]`."
+    -   If corrections detected: "🧠 New Knowledge detected. Run `@[/memory-update]` to save preferences."
     -   Else: "Session complete."
 </step_4_finalize>
 </process>

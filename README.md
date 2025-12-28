@@ -52,6 +52,7 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/auto-update.md`](tools/auto-update.md)**: Self-maintenance.
 -   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
 -   **[`tools/workflow-optimize.md`](tools/workflow-optimize.md)**: **Process Engineer**. Retrospective analysis to self-heal workflows.
+-   **[`tools/memory-update.md`](tools/memory-update.md)**: **Context Historian**. Extracts user preferences and project facts.
 
 ---
 

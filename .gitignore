@@ -18,4 +18,4 @@ __pycache__/
 
 # Agent specific (if any local state leaks)
 .gemini/
-brain/
+# brain/

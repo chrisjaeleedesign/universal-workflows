@@ -49,4 +49,13 @@ Registry: @.agent/workflows/workflow_registry.md
     -   Delegate to `.agent/workflows/universal-workflows/tools/chain/chain-execute.md`.
     -   This ensures Plan -> Approval -> Looped Execution.
 </step_3_execute>
+
+<step_4_finalize>
+<title>Optimization Handoff</title>
+1.  **Completion Check**:
+    -   Assess if the session experienced significant friction (errors, loops).
+2.  **Suggest Optimization**:
+    -   If friction detected: "⚠️ Friction detected. Run `@[/workflow-optimize]` to permanently fix these issues."
+    -   Else: "Session complete."
+</step_4_finalize>
 </process>

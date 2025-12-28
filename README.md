@@ -51,6 +51,7 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/smart-commit.md`](tools/smart-commit.md)**: Semantic git operations.
 -   **[`tools/auto-update.md`](tools/auto-update.md)**: Self-maintenance.
 -   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
+-   **[`tools/workflow-optimize.md`](tools/workflow-optimize.md)**: **Process Engineer**. Retrospective analysis to self-heal workflows.
 
 ---
 

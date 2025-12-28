@@ -1,4 +1,5 @@
 ---
+name: run-prompt-single
 description: Execute a single prompt file.
 ---
 

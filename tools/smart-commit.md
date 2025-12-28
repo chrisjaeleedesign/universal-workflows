@@ -1,4 +1,5 @@
 ---
+name: smart-commit
 description: intelligently analyze changes, update documentation if needed, and generate a semantic commit message before pushing.
 allowed-tools: [run_command, view_file, notify_user, codebase_search, write_to_file, replace_file_content]
 ---

@@ -1,4 +1,5 @@
 ---
+name: test-workflow
 description: Integration testing for Agent Workflows/Commands.
 ---
 

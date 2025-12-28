@@ -52,20 +52,6 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/auto-update.md`](tools/auto-update.md)**: Self-maintenance.
 -   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
 
-## Registry System (How `/setup` Works)
-
-The **Workflow Registry** (`workflow_registry.md`) is the engine that makes commands discoverable. It is built using a **Hybrid Model**:
-
-### 1. The Kernel (Manifest-Based)
-Core system workflows are explicitly defined in the **Source of Truth**: [`universal_manifest.md`](universal_manifest.md).
--   **Discovery**: The `/setup` workflow reads this manifest directly.
--   **Critical Rule**: These files **MUST** have a `name` field but **MUST NOT** have an `argument-hint` field in their frontmatter.
-
-### 2. The Project Tools (Discovery-Based)
-Local project workflows are discovered by scanning the `local-workflows/` directory.
--   **Discovery**: The `/setup` workflow recursively scans for `*.md` files.
--   **Critical Rule**: These files **MUST** include a `name` field in their frontmatter to be registered.
-
 ---
 
 ## Protocols: The Golden Path

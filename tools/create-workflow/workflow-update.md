@@ -1,4 +1,5 @@
 ---
+name: workflow-update
 description: Update an existing Antigravity workflow.
 ---
 

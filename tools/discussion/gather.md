@@ -1,4 +1,5 @@
 ---
+name: discussion-gather
 description: Perform deep research on a topic to gather context for discussion.
 ---
 

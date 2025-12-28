@@ -1,4 +1,5 @@
 ---
+name: loop
 description: Wraps a command in a Validation Loop until it passes User or Critic review.
 allowed-tools: [run_command, notify_user, task_boundary]
 ---

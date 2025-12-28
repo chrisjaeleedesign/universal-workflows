@@ -1,4 +1,5 @@
 ---
+name: visual-planner
 description: Generates visual implementation plans (Mermaid) and requests user approval.
 allowed-tools: [notify_user, write_to_file, task_boundary]
 ---

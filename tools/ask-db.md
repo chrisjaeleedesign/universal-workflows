@@ -1,5 +1,6 @@
 ---
-description: "Ask natural language questions about the database. Uses Gemini to generate and execute safe SQL queries."
+name: ask-db
+description: Ask natural language questions about the database using Gemini.
 allowed-tools: [run_command]
 ---
 

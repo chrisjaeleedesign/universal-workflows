@@ -1,5 +1,5 @@
 ---
-
+name: auto-update
 description: Automate deep-dive analysis and documentation updates for a directory.
 allowed-tools: [run_command, view_file, notify_user, codebase_search, write_to_file, replace_file_content, task_boundary]
 ---

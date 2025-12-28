@@ -1,5 +1,5 @@
 ---
-
+name: create-meta-prompt
 description: Create optimized prompts for Agent-to-Agent communication with XML structure.
 allowed-tools: [notify_user, list_dir, read_url_content, task_boundary, view_file, write_to_file]
 ---

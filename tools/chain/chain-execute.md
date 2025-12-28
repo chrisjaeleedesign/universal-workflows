@@ -1,4 +1,5 @@
 ---
+name: chain-execute
 description: Execute a sequence of workflow steps with smart context bridging.
 ---
 

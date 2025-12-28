@@ -1,4 +1,5 @@
 ---
+name: discussion
 description: Interactive consultant mode for deep technical discussion without code changes.
 allowed-tools: [notify_user, view_file, task_boundary]
 ---

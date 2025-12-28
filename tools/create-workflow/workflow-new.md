@@ -1,4 +1,5 @@
 ---
+name: workflow-new
 description: Create a new Antigravity workflow.
 ---
 
@@ -49,7 +50,7 @@ Current Task: @.gemini/antigravity/brain/CURRENT_UUID/task.md
     -   Use `write_to_file`.
     -   **Frontmatter Rule**:
         -   Since this is a **Local Workflow**, you **MUST** include `name: {name}` in the frontmatter.
-        -   **Universal Workflows** defined in the Manifest also use this field.
+        -   (Universal Workflows defined in the Manifest do NOT use this field, but `workflow-new` creates Local ones).
     -   **Format**:
         ```yaml
         ---

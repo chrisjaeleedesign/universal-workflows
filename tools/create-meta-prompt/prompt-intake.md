@@ -1,4 +1,5 @@
 ---
+name: prompt-intake
 description: Intake logic for create-meta-prompt. Analyzes user intent and gathers context.
 ---
 

@@ -1,4 +1,5 @@
 ---
+name: critic
 description: A targeted quality gate that reviews artifacts using detailed personas.
 allowed-tools: [view_file, notify_user, task_boundary, run_command]
 ---

@@ -1,4 +1,5 @@
 ---
+name: test-unit
 description: Generate and execute unit tests (Pytest) for code logic.
 ---
 

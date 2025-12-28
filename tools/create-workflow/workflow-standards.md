@@ -19,15 +19,19 @@ Defines metadata and capability boundaries.
 -   **Tools**: Verify that every tool used in the `<process>` (e.g., `notify_user` for asking questions) is listed in `allowed-tools`.
 
 ```
--   **Critical Rules**:
-    -   **Universal Workflows** (`universal-workflows/`): Defined in `universal_manifest.md`. DO NOT include `argument-hint` in the file. `name` is REQUIRED.
-    -   **Local Workflows** (`local-workflows/`): Discovered via scan. MUST include `name` in the file.
+-   **Critical Rules (Discovery Protocol)**:
+    -   **Mandatory Name Field**: All workflows (Local AND Universal) **MUST** include `name: [command-name]` in the frontmatter.
+    -   **Default Behavior**: When creating new workflows, **ALWAYS** include the `name` field.
+    -   **Troubleshooting Discovery**:
+        -   **Issue**: Workflow command not showing up in the list (e.g., `/my-command`).
+        -   **Fix**: Check the frontmatter. If `name` is missing, add it. If `name` is present but it's not showing, try toggling/refreshing it (ensure it is the first field and formatted correctly).
+        -   *Note*: While the Universal Manifest conceptually defines names, the kernel's indexer relies heavily on the Frontmatter `name` field for robust discovery.
 
 ```yaml
 ---
-# FOR LOCAL WORKFLOWS ONLY:
+# ALWAYS REQUIRED (for both Local & Universal):
 name: workflow-name-kebab-case
-# FOR ALL WORKFLOWS:
+
 description: Action-oriented summary.
 allowed-tools: [tool1, tool2]
 ---

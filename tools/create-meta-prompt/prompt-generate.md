@@ -1,4 +1,5 @@
 ---
+name: prompt-generate
 description: Generation logic for create-meta-prompt. Generates the actual prompt file.
 ---
 

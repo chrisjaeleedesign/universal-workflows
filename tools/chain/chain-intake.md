@@ -1,4 +1,5 @@
 ---
+name: chain-intake
 description: Parse natural language instructions into a sequence of executable workflow commands.
 ---
 

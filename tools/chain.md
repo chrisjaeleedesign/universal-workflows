@@ -1,5 +1,5 @@
 ---
-
+name: chain
 description: Execute a chain of prompts (Sequential or Parallel) or other workflows.
 allowed-tools: [task_boundary, run_command, list_dir, view_file, notify_user]
 ---

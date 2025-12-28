@@ -1,4 +1,5 @@
 ---
+name: prompt-chain-runner
 description: Execute a chain of prompts (Sequential or Parallel).
 ---
 

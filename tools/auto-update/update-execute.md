@@ -1,4 +1,5 @@
 ---
+name: update-execute
 description: Execute maintenance updates and documentation sync.
 ---
 
@@ -25,6 +26,11 @@ Standards: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-
     -   Scan complex code files (read in Step 1).
     -   Identify complex logic blocks that lack explanation.
     -   **Action**: Add brief, clarifying comments or TODOs if the logic is unclear.
+3.  **Frontmatter Safety (CRITICAL)**:
+    -   **Context**: Universal Workflows (`universal-workflows/`) follow a Hybrid Registry pattern. Some possess `name` fields, others do not.
+    -   **Rule**: **NEVER add or remove the `name` field** from valid YAML frontmatter in `universal-workflows/*`.
+    -   **Rule**: **NEVER add or remove the `argument-hint` field** in `universal-workflows/*`.
+    -   **Reason**: Modifying these fields causes immediate registry breakage.
 </step_1_maintenance_checks>
 
 <step_2_update_documentation>

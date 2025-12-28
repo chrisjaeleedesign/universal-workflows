@@ -1,4 +1,5 @@
 ---
+name: update-analyze
 description: Perform a Deep Dive analysis of a directory structure.
 ---
 

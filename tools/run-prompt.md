@@ -1,5 +1,5 @@
 ---
-
+name: run-prompt
 description: Delegate one or more prompts to fresh sub-task contexts.
 allowed-tools: [read_url_content, task_boundary, run_command, list_dir, view_file]
 ---

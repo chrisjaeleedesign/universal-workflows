@@ -1,4 +1,5 @@
 ---
+name: walkthrough
 description: The Reporter. Automatically generates a 'walkthrough' artifact summarizing the session's achievements.
 allowed-tools: [write_to_file, view_file, task_boundary]
 ---

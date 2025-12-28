@@ -1,4 +1,5 @@
 ---
+name: test-visual
 description: Verify visual assets against brand guidelines using AI Vision.
 ---
 

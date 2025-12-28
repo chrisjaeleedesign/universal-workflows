@@ -13,7 +13,7 @@ Values: "Hub-and-Spoke", "Agentic", "Verified"
 Plan Kernel: @.agent/workflows/universal-workflows/kernel/visual-planner.md
 Critic Kernel: @.agent/workflows/universal-workflows/kernel/critic.md
 New Workflow Path: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-new.md
-Update Workflow Path: @.agent/workflows/universal-workflows/tools/create-workflow/update.md
+Update Workflow Path: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-update.md
 </context>
 
 <input>
@@ -32,7 +32,7 @@ $ARGUMENTS: Intent (e.g., "Create new workflow for X" or "Update test workflow")
 <title>Assembly</title>
 1.  **Route**:
     -   If "Create": Call `tools/create-workflow/workflow-new.md`.
-    -   If "Update": Call `tools/create-workflow/update.md`.
+    -   If "Update": Call `tools/create-workflow/workflow-update.md`.
 2.  **Logic**: Execute the approved plan to generate/edit the `.md` file.
 </step_2_build>
 

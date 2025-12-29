@@ -13,8 +13,11 @@ $ARGUMENTS: (Optional) Path to `active_domain_state.md` (defaults to standard pa
 <process>
 <step_1_load_state>
 <title>Read Scoreboard</title>
-1.  **Read**: `.agent/memory/active_domain_state.md`.
-2.  **Parse**:
+1.  **Resolve Path**:
+    -   If `$ARGUMENTS` is provided: Use it as the memory file path.
+    -   Else: Default to `.agent/memory/working/active_domain_state.md`.
+2.  **Read**: Read the target file.
+3.  **Parse**:
     -   Find the "Feature Backlog" table.
     -   Identify the **First** row where Status is 🔴 (Pending) or ⚠️ (Warning).
 3.  **Decision**:

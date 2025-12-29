@@ -57,6 +57,10 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/clean.md`](tools/clean.md)**: **Janitor**. Scans for clutter and proposes cleanup actions.
 -   **[`tools/help.md`](tools/help.md)**: **System Guide**. Interactive manual that explains commands and usage.
 
+### 4. Utilities & Resources
+-   **[`setup.md`](setup.md)**: **Initialization**. Sets up the workflow registry and environment.
+-   **[`references/`](references/)**: Shared resources and prompt libraries.
+
 ---
 
 ## Protocols: The Golden Path

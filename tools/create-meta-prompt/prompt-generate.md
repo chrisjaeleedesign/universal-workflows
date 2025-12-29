@@ -45,9 +45,12 @@ Rules: @.agent/workflows/universal-workflows/tools/create-meta-prompt/references
 </construction_logic>
 
 <file_creation>
-1.  **Read**: `.agent/templates/domain_memory_template.md`
-2.  **Replace**: Fill specific placeholders (or append to sections).
-3.  **Write**: `.agent/memory/active_domain_state.md` (Overwriting any previous state for this new task).
+1.  **Resolve Path**:
+    -   If `$ARGUMENTS` contains a path (e.g. `.agent/memory/...`), use it.
+    -   Else, default to: `.agent/memory/working/active_domain_state.md`.
+2.  **Read**: `.agent/templates/domain_memory_template.md`
+3.  **Replace**: Fill specific placeholders (or append to sections).
+4.  **Write**: Write to the resolved path (Overwriting previous state).
 </file_creation>
 
 </step_1_generate>

@@ -51,6 +51,9 @@ Standards: @.agent/workflows/universal-workflows/tools/create-workflow/workflow-
 <step_4_finalize>
 <title>Summary</title>
 1.  **Verify**: Check Markdown rendering.
-2.  **Summary**: Create `SUMMARY.md` listing files analyzed, maintenance performed, and docs updated.
+2.  **Report**: Generate a `walkthrough` artifact summarizing the maintenance performed.
+    -   **ArtifactType**: `walkthrough`
+    -   **Content**: List files analyzed, maintenance actions taken, and documentation updates.
+    -   **Note**: Do NOT write a `SUMMARY.md` file to the directory. Use the artifact system.
 </step_4_finalize>
 </process>

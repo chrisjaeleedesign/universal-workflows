@@ -25,11 +25,14 @@ Memory Context: @.agent/memory/*.md
     -   Analyze "$ARGUMENTS" to determine Intent and Mode.
     -   **Deep Mode** (Creation/Complex): `build`, `create`, `refactor`, `implement`, `fix`.
     -   **Shallow Mode** (Admin/Simple): `archive`, `clean`, `list`, `audit`.
-3.  **Construct Chain**:
+3.  **Session Setup**:
+    -   **Generate ID**: Create a unique session ID (timestamp + topic slug).
+    -   **Define Memory**: `TargetMemory = .agent/memory/working/{ID}_domain_state.md`.
+4.  **Construct Chain**:
     -   **Base**: `kernel/visual-planner` (Always Plan first).
     -   **If Deep Mode**:
-        -   Add: `tools/create-meta-prompt` (Build Domain Memory).
-        -   Add: `kernel/loop-domain` (Execute Domain Loop).
+        -   Add: `tools/create-meta-prompt` (Arg: `TargetMemory`).
+        -   Add: `kernel/loop-domain` (Arg: `TargetMemory`).
     -   **If Shallow Mode**:
         -   Add: `[Resolved Tool]` (e.g. `management/archive.md`).
         -   Add: `kernel/loop` (Standard validation loop if applicable).
@@ -54,13 +57,25 @@ Memory Context: @.agent/memory/*.md
 </step_3_execute>
 
 <step_4_finalize>
-<title>Optimization Handoff</title>
-1.  **Completion Check**:
-    -   Assess if the session experienced significant friction (errors, loops).
-    -   Assess if the user provided corrections/preferences ("No, do X").
-2.  **Suggest Optimization**:
-    -   If friction detected: "⚠️ Friction detected. Run `@[/workflow-optimize]`."
-    -   If corrections detected: "🧠 New Knowledge detected. Run `@[/memory-update]` to save preferences."
+<title>Maintenance Sweep</title>
+1.  **Session Assessment**:
+    -   Did the session experience friction? (Errors, loops, confusion)
+    -   Did the user provide corrections? (New preferences, facts)
+    -   *Use these signals to recommend specific actions below.*
+
+2.  **Maintenance Menu**:
+    -   Present the following menu to the user:
+        1.  **Clean Workspace** (`/clean`)
+        2.  **Auto-Update Documentation** (`/auto-update`)
+        3.  **Update Memory** (`/memory-update`) - *Recommended if corrections detected*
+        4.  **Smart Commit** (`/smart-commit`)
+        5.  **Optimize Workflow** (`/workflow-optimize`) - *Recommended if friction detected*
+
+3.  **Execution**:
+    -   Ask: "Which maintenance tasks would you like to run? (e.g., '1, 4' or 'None')"
+    -   If user selects options:
+        -   Construct a list of the corresponding commands (e.g., `clean`, `smart-commit`).
+        -   Delegate to `.agent/workflows/universal-workflows/tools/chain/chain-execute.md` passing the list.
     -   Else: "Session complete."
 </step_4_finalize>
 </process>

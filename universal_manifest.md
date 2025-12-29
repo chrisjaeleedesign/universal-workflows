@@ -84,3 +84,23 @@
   path: universal-workflows/tools/help.md
   role: System Guide
   desc: Interactive manual for the Agent System. Lists commands or explains specific workflows.
+
+- name: archive-memory
+  path: universal-workflows/tools/archive-memory.md
+  role: Memory Librarian
+  desc: Moves the active Domain Memory file from working/ to archive/.
+
+- name: clean
+  path: universal-workflows/tools/clean.md
+  role: Janitor
+  desc: Scans for clutter and proposes cleanup actions.
+
+- name: memory-update
+  path: universal-workflows/tools/memory-update.md
+  role: Context Historian
+  desc: Extracts user preferences and project facts from session logs.
+
+- name: workflow-optimize
+  path: universal-workflows/tools/workflow-optimize.md
+  role: Process Engineer
+  desc: Retrospective analysis to self-heal workflows.

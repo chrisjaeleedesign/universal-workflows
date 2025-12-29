@@ -30,20 +30,22 @@ $ARGUMENTS: Topic or question to research.
 
 <step_3_synthesize>
 <title>Create Brief</title>
-1.  **Draft**: Create a research brief.
-2.  **Structure**:
-    -   **Problem**: What is being discussed?
-    -   **Key Files**: List of files found + brief summary.
-    -   **Concepts**: Definitions and relationships.
-    -   **Missing**: What wasn't found?
+
+<load_resources>
+Patterns: @.agent/workflows/universal-workflows/tools/create-meta-prompt/references/research-patterns.md
+</load_resources>
+
+1.  **Draft**: Generate the research brief.
+2.  **Format**: 
+    -   **Strictly follow the XML schema** defined in `Patterns` (e.g., `<research>`, `<findings>`, `<quality_report>`).
+    -   Do not use free-form markdown for the core findings.
 3.  **Persist**: 
-    -   Generate filename: `./.discussion/{{YYYY}}-{{MM}}-{{DD}}-{{TOPIC_SLUG}}.md`
-    -   Ensure directory exists: `mkdir -p ./.discussion/archive`
+    -   Generate filename: `.agent/memory/working/{{YYYY}}-{{MM}}-{{DD}}-{{TOPIC_SLUG}}_research.md`
     -   Save the brief there.
 </step_3_synthesize>
 
 <step_4_output>
 <title>Handoff</title>
-1.  **Return**: The content of `discussion_context.md`.
+1.  **Return**: The absolute path of the generated research brief.
 </step_4_output>
 </process>

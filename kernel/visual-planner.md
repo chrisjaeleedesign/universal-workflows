@@ -13,12 +13,19 @@ $ARGUMENTS: The proposed execution chain or task description.
 <process>
 <step_1_visualize>
 <title>Generate Flowchart</title>
-1.  **Design**: Create a Mermaid diagram representing the flow.
+
+<load_resources>
+Patterns: @.agent/workflows/universal-workflows/tools/create-meta-prompt/references/plan-patterns.md
+</load_resources>
+
+1.  **Analyze**:
+    -   Review the `Patterns` to understand the required XML structure for plans.
+2.  **Design**: Create a Mermaid diagram representing the flow.
     -   Nodes = Workflow Steps.
     -   Edges = Data flow / Dependencies.
     -   **Constraint**: ALWAYS quote node labels (e.g., `id["Label"]`) to avoid syntax errors with special chars.
-2.  **Draft**: Write (or update) `implementation_plan.md`.
-    -   Include the Mermaid diagram.
+3.  **Draft**: Write (or update) `implementation_plan.md`.
+    -   **Format**: Use the XML schema defined in `Patterns` (Goal, User Review, etc) but wrap the Mermaid diagram in a standard markdown block.
     -   Include a text summary of the logic.
 </step_1_visualize>
 

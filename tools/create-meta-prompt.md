@@ -1,6 +1,6 @@
 ---
 name: create-meta-prompt
-description: Create optimized prompts for Agent-to-Agent communication with XML structure.
+description: Generate Domain Memory Artifact (Living Meta-Prompt). Routes to intake/generate logic.
 allowed-tools: [notify_user, list_dir, read_url_content, task_boundary, view_file, write_to_file]
 ---
 

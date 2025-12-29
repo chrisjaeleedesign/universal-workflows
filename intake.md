@@ -18,17 +18,22 @@ Memory Context: @.agent/memory/*.md
 
 <process>
 <step_1_analyze>
-<title>Semantic Parsing</title>
+<title>Semantic Parsing & Mode Selection</title>
 1.  **Check Registry**:
     -   If `Registry Status` is "missing", STOP. Return error: "⚠️ System not initialized. Run `/setup` first."
-2.  **Catalog**: Review the `Registry` to find available workflows.
-3.  **Parse**: Deconstruct "$ARGUMENTS" into a sequence of Intent/Action pairs.
-    -   "Draft a blog" -> Intent: Content Creation -> Tool: `content/write-copy.md`
-    -   "Critique it" -> Intent: Quality Gate -> Tool: `.agent/workflows/universal-workflows/kernel/critic.md`
-    -   "Loop until good" -> Intent: Reliability -> Tool: `.agent/workflows/universal-workflows/kernel/loop.md`
+2.  **Parse & Classify**:
+    -   Analyze "$ARGUMENTS" to determine Intent and Mode.
+    -   **Deep Mode** (Creation/Complex): `build`, `create`, `refactor`, `implement`, `fix`.
+    -   **Shallow Mode** (Admin/Simple): `archive`, `clean`, `list`, `audit`.
 3.  **Construct Chain**:
-    -   Create a list of executable commands.
-    -   Resolve dependencies ("it" refers to previous file).
+    -   **Base**: `kernel/visual-planner` (Always Plan first).
+    -   **If Deep Mode**:
+        -   Add: `tools/create-meta-prompt` (Build Domain Memory).
+        -   Add: `kernel/loop-domain` (Execute Domain Loop).
+    -   **If Shallow Mode**:
+        -   Add: `[Resolved Tool]` (e.g. `management/archive.md`).
+        -   Add: `kernel/loop` (Standard validation loop if applicable).
+    -   **Finalize**: `kernel/walkthrough` (Report).
 </step_1_analyze>
 
 <step_2_plan>
@@ -41,14 +46,11 @@ Memory Context: @.agent/memory/*.md
 
 <step_3_execute>
 <title>Golden Path Execution</title>
-1.  **Construct Protocol**:
-    -   **Phase 1 (Safety)**: Generate command using `.agent/workflows/universal-workflows/kernel/visual-planner.md`.
-    -   **Phase 2 (Reliability)**: Generate command using `.agent/workflows/universal-workflows/kernel/loop.md`.
-    -   **Phase 3 (Visibility)**: Generate command using `.agent/workflows/universal-workflows/kernel/walkthrough.md`.
-    -   *Example*: `[kernel/visual-planner, kernel/loop "cmd", kernel/walkthrough]`.
-2.  **Route**:
+1.  **Route**:
     -   Delegate to `.agent/workflows/universal-workflows/tools/chain/chain-execute.md`.
-    -   This ensures Plan -> Approval -> Looped Execution.
+    -   Pass the **Constructed Chain** from Step 1.
+    -   **Deep Flow**: Plan -> Build Memory -> Domain Loop -> Report.
+    -   **Shallow Flow**: Plan -> Tool -> Report.
 </step_3_execute>
 
 <step_4_finalize>

@@ -11,56 +11,50 @@ $ARGUMENTS: The inferred `purpose`, `topic`, and `description`.
 
 <process>
 <step_1_generate>
-<title>Generate Prompt</title>
+<title>Generate Domain Memory</title>
 
-<load_patterns>
-Load purpose-specific patterns (RELATIVELY LINKED):
-- Do: [references/do-patterns.md](references/do-patterns.md)
-- Plan: [references/plan-patterns.md](references/plan-patterns.md)
-- Research: [references/research-patterns.md](references/research-patterns.md)
-- Refine: [references/refine-patterns.md](references/refine-patterns.md)
+<load_resources>
+Template: @.agent/templates/domain_memory_template.md
+Plan: @.gemini/antigravity/brain/$LAST_ID/implementation_plan.md (or implementation_plan.md in current context)
+Rules: @.agent/workflows/universal-workflows/tools/create-meta-prompt/references/intelligence-rules.md
+</load_resources>
 
-Load intelligence rules: [references/intelligence-rules.md](references/intelligence-rules.md)
-</load_patterns>
+<construction_logic>
+**Goal**: Populate `.agent/memory/active_domain_state.md` using the Template.
 
-<prompt_structure>
-All generated prompts include:
-1. **Objective**: What to accomplish
-2. **Context**: Referenced files (@), dynamic context (!)
-3. **Artifact Updates** (Critical): `brain/task.md` and `brain/implementation_plan.md`
-4. **Requirements**: Specific instructions
-5. **Output specification**: XML metadata, SUMMARY.md
-6. **Success criteria**
+1.  **Section 1: Context & Strategy (The Meta-Prompt)**
+    -   **Goal**: Extract from User Input + Plan.
+    -   **Context**: Summarize gathered info + "Goal" from Plan.
+    -   **Architecture**: Extract from "Proposed Changes" in Plan.
 
-For Research and Plan prompts, output must include:
-- `<confidence>`, `<dependencies>`, `<open_questions>`, `<assumptions>`
+2.  **Section 2: Constraints & Rules**
+    -   **Base**: Keep standard constraints from Template.
+    -   **Add**: Any "Requirements" found in the inputs.
 
-All prompts must create `SUMMARY.md`.
-</prompt_structure>
+3.  **Section 3: Feature Backlog (The Scoreboard)**
+    -   **Source**: `implementation_plan.md`.
+    -   **Parsing**:
+        -   Look for `#### [MODIFY]` or `#### [NEW]` lines in the Plan.
+        -   Or look for a "Steps" section.
+    -   **Transformation**: Convert each item into a Table Row:
+        -   `| ID (P01..) | Micro-Task (File + Action) | Verification (e.g. pytest) | 🔴 | notes |`
+    -   **Constraint**: If Plan is unstructured, generate "Best Guess" rows based on file list.
 
-<self_correction>
-**CRITICAL**: Before saving the prompt, review it against `references/intelligence-rules.md`.
-
-Check constraints:
-1. Does it explicitly create `SUMMARY.md`?
-2. Does it use the correct file paths?
-3. If "Research", does it require `<confidence>` tags?
-4. If "Do", does it define clear file artifacts?
-
-If any check fails, **rewrite the prompt to fix it**.
-</self_correction>
+4.  **Section 4: Decision Log**
+    -   Keep as initialized (empty).
+</construction_logic>
 
 <file_creation>
-1. Identify/Create Session Folder: 
-   - Ensure directories exist: `mkdir -p ./.prompts/archive`
-2. Determine File Sequence: Check existing `*-{purpose}.md` files, increment counter if needed (or just use unique timestamp).
-3. Write prompt to: `./.prompts/{YYYY-MM-DD}-{topic}-{purpose}.md`
+1.  **Read**: `.agent/templates/domain_memory_template.md`
+2.  **Replace**: Fill specific placeholders (or append to sections).
+3.  **Write**: `.agent/memory/active_domain_state.md` (Overwriting any previous state for this new task).
 </file_creation>
+
 </step_1_generate>
 
 <step_2_present>
 <title>Present Result</title>
-Present the created prompt path and the run command:
-` /run-prompt .prompts/{YYYY-MM-DD}-{topic}-{purpose}.md `
+Present the created domain state:
+`Domain Memory Initialized: .agent/memory/active_domain_state.md`
 </step_2_present>
 </process>

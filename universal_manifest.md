@@ -26,6 +26,11 @@
   role: Session Reporter
   desc: Generates proof-of-work summaries and walkthrough artifacts.
 
+- name: loop-domain
+  path: universal-workflows/kernel/loop-domain.md
+  role: Domain Iterator (Worker)
+  desc: Iterates through the Domain Memory Backlog, executing tasks one by one.
+
 - name: test
   path: universal-workflows/tools/test.md
   role: QA Lead
@@ -74,3 +79,8 @@
   path: universal-workflows/tools/discussion.md
   role: Technical Consultant
   desc: Interactive consultant mode for deep technical discussion without code changes.
+
+- name: help
+  path: universal-workflows/tools/help.md
+  role: System Guide
+  desc: Interactive manual for the Agent System. Lists commands or explains specific workflows.

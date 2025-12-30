@@ -54,7 +54,7 @@ Located in `tools/`, these are the "Specialist Workers."
 -   **[`tools/create-meta-prompt.md`](tools/create-meta-prompt.md)**: Prompt engineering.
 -   **[`tools/workflow-optimize.md`](tools/workflow-optimize.md)**: **Process Engineer**. Retrospective analysis to self-heal workflows.
 -   **[`tools/memory-update.md`](tools/memory-update.md)**: **Context Historian**. Extracts user preferences and project facts.
--   **[`tools/clean.md`](tools/clean.md)**: **Janitor**. Scans for clutter and proposes cleanup actions.
+-   **[`tools/clean.md`](tools/clean.md)**: **Janitor**. Scans for clutter and working memory to propose cleanup actions.
 -   **[`tools/archive-memory.md`](tools/archive-memory.md)**: **Memory Librarian**. Moves the active Domain Memory file from working/ to archive/.
 -   **[`tools/help.md`](tools/help.md)**: **System Guide**. Interactive manual that explains commands and usage.
 

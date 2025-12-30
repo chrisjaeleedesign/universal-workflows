@@ -93,7 +93,7 @@
 - name: clean
   path: universal-workflows/tools/clean.md
   role: Janitor
-  desc: Scans for clutter and proposes cleanup actions.
+  desc: Scans for clutter and working memory, proposing cleanup actions.
 
 - name: memory-update
   path: universal-workflows/tools/memory-update.md

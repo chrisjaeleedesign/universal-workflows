@@ -4,11 +4,11 @@ allowed-tools: [run_command, read_url_content, task_boundary, notify_user]
 ---
 
 <objective>
-Analyze the provided resource (file) using Google's Gemini Pro Vision (or similar multimodal model) via the `ai_feedback.py` script and provide constructive feedback or answer specific questions about it.
+Analyze the provided resource (file) using Google's Gemini Pro Vision (or similar multimodal model) via the `gemini.py` script and provide constructive feedback or answer specific questions about it.
 </objective>
 
 <context>
-Script Location: ../scripts/ai_feedback.py
+Script Location: ../scripts/gemini.py
 Target Resource: $ARGUMENTS (first argument)
 User Request: $ARGUMENTS (subsequent arguments)
 </context>
@@ -42,7 +42,7 @@ User Request: $ARGUMENTS (subsequent arguments)
 <step_3_execute>
 <title>Request & Report</title>
 1.  **Execute Tool**:
-    -   Run: `python3 ../scripts/ai_feedback.py --media [resource_path] "[approved_prompt]"`
+    -   Run: `python3 ../scripts/gemini.py --mode critique --media [resource_path] "[approved_prompt]"`
     -   *Note*: Ensure the prompt is properly quoted to handle newlines/spaces.
 2.  **Report Results**:
     -   Display the output clearly to the user.

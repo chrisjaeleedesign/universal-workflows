@@ -8,7 +8,7 @@ Analyze the provided resource (file) using Google's Gemini Pro Vision (or simila
 </objective>
 
 <context>
-Script Location: @research/scripts/ai_feedback.py
+Script Location: ../scripts/ai_feedback.py
 Target Resource: $ARGUMENTS (first argument)
 User Request: $ARGUMENTS (subsequent arguments)
 </context>
@@ -42,7 +42,7 @@ User Request: $ARGUMENTS (subsequent arguments)
 <step_3_execute>
 <title>Request & Report</title>
 1.  **Execute Tool**:
-    -   Run: `python3 research/scripts/ai_feedback.py --media [resource_path] "[approved_prompt]"`
+    -   Run: `python3 ../scripts/ai_feedback.py --media [resource_path] "[approved_prompt]"`
     -   *Note*: Ensure the prompt is properly quoted to handle newlines/spaces.
 2.  **Report Results**:
     -   Display the output clearly to the user.
